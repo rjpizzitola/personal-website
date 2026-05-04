@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech — Rebecca Pizzitola</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .page-wrapper {
+        padding-top: 5.5rem;
+        max-width: 960px;
+        margin: 0 auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .page-header {
+        padding: 4rem 0 2.5rem;
+        border-bottom: 2px solid var(--lime);
+        margin-bottom: 3.5rem;
+      }
+
+      .page-badge {
+        font-family: "DM Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--lime-dark);
+        margin-bottom: 0.75rem;
+      }
+
+      .page-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--maroon-dark);
+        line-height: 1.1;
+      }
+
+      .page-subtitle {
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-top: 0.75rem;
+        max-width: 540px;
+        line-height: 1.7;
+      }
+
+      /* ---- SKILLS CHIPS ---- */
+      .skills-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 3.5rem;
+      }
+
+      .skill-chip {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        padding: 0.3rem 0.75rem;
+        border: 1px solid var(--maroon);
+        color: var(--maroon);
+        border-radius: 2px;
+      }
+
+      .skill-chip.highlight {
+        background: var(--lime);
+        border-color: var(--lime);
+        color: var(--maroon-dark);
+      }
+
+      /* ---- SECTION TITLES ---- */
+      .section-title {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--maroon);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--lime);
+        opacity: 0.6;
+      }
+
+      section {
+        margin-bottom: 3.5rem;
+      }
+
+      /* ---- WORK HISTORY ---- */
+      .work-entry {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 1rem;
+        margin-bottom: 2.25rem;
+        align-items: start;
+      }
+
+      .work-years {
+        font-family: "DM Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        padding-top: 3px;
+      }
+
+      .work-title {
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--text);
+        margin-bottom: 0.15rem;
+      }
+
+      .work-org {
+        font-size: 0.85rem;
+        color: var(--maroon);
+        margin-bottom: 0.4rem;
+      }
+
+      .work-desc {
+        font-size: 0.83rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      .work-tags {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+
+      .work-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 0.65rem;
+        padding: 0.2rem 0.55rem;
+        background: var(--lime-light);
+        color: var(--maroon-dark);
+        border-radius: 2px;
+      }
+
+      /* ---- PROJECTS GRID ---- */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .project-card {
+        border: 1px solid rgba(107, 26, 42, 0.12);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+
+      .project-card:hover {
+        border-color: var(--maroon);
+        transform: translateY(-2px);
+      }
+
+      .project-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+      }
+
+      .project-name {
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+
+      .project-link {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--maroon);
+        text-decoration: none;
+        opacity: 0.7;
+      }
+
+      .project-link:hover {
+        opacity: 1;
+      }
+
+      .project-desc {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+
+      .project-footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+
+      .project-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 0.65rem;
+        padding: 0.2rem 0.55rem;
+        background: var(--pink-light);
+        color: var(--maroon);
+        border-radius: 2px;
+      }
+
+      /* Placeholder */
+      .placeholder-block {
+        background: var(--pink-light);
+        border-left: 3px solid var(--pink);
+        padding: 1rem 1.25rem;
+        font-size: 0.83rem;
+        color: var(--text-muted);
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="wordmark">Rebecca Pizzitola</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academic.html">Academic</a></li>
+        <li><a href="tech.html" class="active">Tech</a></li>
+      </ul>
+    </nav>
+
+    <main class="page-wrapper">
+      <header class="page-header">
+        <p class="page-badge">Engineering &amp; Product</p>
+        <h1 class="page-title">Tech Portfolio</h1>
+        <p class="page-subtitle">
+          UX engineer with a background in cognitive science and research.
+          Currently open to full-time user experience engineering, design, and
+          research roles.
+        </p>
+        <a href="resume.pdf" class="download-cv" download
+          >↓ Download my resume</a
+        >
+      </header>
+
+      <!-- SKILLS -->
+      <section>
+        <h2 class="section-title">Skills &amp; Stack</h2>
+        <div class="skills-row">
+          <span class="skill-chip highlight">Python</span>
+          <span class="skill-chip highlight">JavaScript</span>
+          <span class="skill-chip highlight">TypeScript</span>
+          <span class="skill-chip">React</span>
+          <span class="skill-chip">HTML/CSS</span>
+          <span class="skill-chip">C++</span>
+          <span class="skill-chip">GitHub</span>
+          <span class="skill-chip">Figma</span>
+          <span class="skill-chip">User Research/qualitative methods</span>
+        </div>
+      </section>
+
+      <!-- WORK HISTORY -->
+      <section>
+        <h2 class="section-title">Work History</h2>
+
+        <div class="work-entry">
+          <span class="work-years">January 2026 – April 2026</span>
+          <div>
+            <p class="work-title">UX Researcher</p>
+            <p class="work-org">Autograph.ai</p>
+            <p class="work-desc">
+              Led end-to-end user research (recruiting → interviews → synthesis)
+              to uncover usability issues and shape product direction,
+              delivering prioritized insights to engineering and product. Built
+              and managed a 20-person early user community to enable rapid,
+              iterative feedback and validate emerging use cases.
+            </p>
+            <div class="work-tags">
+              <span class="work-tag">UX Research</span>
+              <span class="work-tag">Interviews</span>
+              <span class="work-tag">Feedback synthesis</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-entry">
+          <span class="work-years">Summer 2025</span>
+          <div>
+            <p class="work-title">User Experience Engineering Intern</p>
+            <p class="work-org">Pinterest</p>
+            <p class="work-desc">
+              Identified design-to-engineering workflow bottlenecks and built a
+              TypeScript/Node.js pipeline leveraging the Figma API to automate
+              handoff tracking and reporting. Reduced manual effort from 10
+              hours/month to 10 minutes while increasing visibility for
+              cross-functional teams.
+            </p>
+            <div class="work-tags">
+              <span class="work-tag">TypeScript</span>
+              <span class="work-tag">Node.js</span>
+              <span class="work-tag">APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-entry">
+          <span class="work-years">January 2024 - December 2024</span>
+          <div>
+            <p class="work-title">Web Development Intern</p>
+            <p class="work-org">UCSF / Hsia Lab</p>
+            <p class="work-desc">
+              Designed and developed a public-facing healthcare research
+              website, translating designs into Drupal and validating
+              accessibility through iterative testing with 36 users to ensure
+              clarity for broad audiences.
+            </p>
+            <div class="work-tags">
+              <span class="work-tag">Drupal</span>
+              <span class="work-tag">User Testing</span>
+              <span class="work-tag">Accessibility</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section>
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-card-top">
+              <p class="project-name">QUEERx</p>
+              <a
+                href="https://web.stanford.edu/class/cs194h/projects/QUEERx/"
+                class="project-link"
+                target="_blank"
+                >Project Website ↗</a
+              >
+            </div>
+            <p class="project-desc">
+              Search for doctors by location, specialty, gender, and more. Read
+              reviews of doctors that are specific to LGBTQ+ patients. Lean on
+              the Queer community and spread the word about safe, accessible
+              healthcare.
+            </p>
+            <div class="project-footer">
+              <span class="project-tag">React</span>
+              <span class="project-tag">End-to-End</span>
+              <span class="project-tag">Human-centered design</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="placeholder-block">
+          Open to collaboration -- shoot me an email or connect on LinkedIn.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2026 Rebecca Pizzitola —
+      <a href="index.html" style="color: var(--maroon); text-decoration: none"
+        >Home</a
+      >
+    </footer>
+  </body>
+</html>

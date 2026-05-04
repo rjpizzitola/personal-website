@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rebecca Pizzitola</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ---- HERO ---- */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 5rem;
+      }
+
+      .hero-left {
+        background: var(--pink-light);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5rem 4rem 5rem 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-left::after {
+        content: "";
+        position: absolute;
+        bottom: -60px;
+        right: -60px;
+        width: 200px;
+        height: 200px;
+        background: var(--pink);
+        border-radius: 50%;
+        opacity: 0.4;
+      }
+
+      .hero-left::before {
+        content: "";
+        position: absolute;
+        top: 3rem;
+        right: 2rem;
+        width: 8px;
+        height: 8px;
+        background: var(--lime);
+        border-radius: 50%;
+      }
+
+      .hero-eyebrow {
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--maroon);
+        margin-bottom: 1.5rem;
+        opacity: 0.75;
+      }
+
+      .hero-name {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 5vw, 4.2rem);
+        font-weight: 700;
+        color: var(--maroon-dark);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-tagline {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--maroon);
+        margin-bottom: 2rem;
+        opacity: 0.8;
+      }
+
+      .hero-about {
+        font-size: 0.95rem;
+        line-height: 1.75;
+        color: var(--text-muted);
+        max-width: 420px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-about p + p {
+        margin-top: 1rem;
+      }
+
+      /* ---- FORK PANEL ---- */
+      .hero-right {
+        background: var(--maroon);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 5rem 5rem 5rem 4rem;
+        gap: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-right::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: -80px;
+        width: 300px;
+        height: 300px;
+        background: var(--maroon-light);
+        border-radius: 50%;
+        opacity: 0.4;
+      }
+
+      .fork-heading {
+        font-family: "DM Mono", monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--pink);
+        opacity: 0.7;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .fork-card {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 380px;
+        padding: 2rem;
+        border: 1px solid rgba(244, 167, 185, 0.2);
+        margin-bottom: 1.25rem;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      .fork-card:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .fork-card:hover {
+        border-color: rgba(244, 167, 185, 0.5);
+        background: rgba(244, 167, 185, 0.05);
+      }
+
+      .fork-card-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+      }
+
+      .fork-card-label.academic {
+        color: var(--pink-light);
+        opacity: 0.6;
+      }
+
+      .fork-card-label.tech {
+        color: var(--lime);
+        opacity: 0.8;
+      }
+
+      .fork-card-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--pink-light);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+
+      .fork-card-desc {
+        font-size: 0.82rem;
+        color: var(--pink);
+        opacity: 0.65;
+        margin-bottom: 1.25rem;
+        line-height: 1.55;
+      }
+
+      /* ---- BOTTOM STRIP ---- */
+      .strip {
+        background: var(--lime);
+        padding: 0.75rem 5rem;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        overflow: hidden;
+      }
+
+      .strip-item {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: var(--maroon-dark);
+        white-space: nowrap;
+        text-decoration: none;
+        opacity: 0.8;
+      }
+
+      .strip-dot {
+        width: 4px;
+        height: 4px;
+        background: var(--maroon);
+        border-radius: 50%;
+        opacity: 0.4;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="wordmark">Your Name</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="academic.html">Academic</a></li>
+        <li><a href="tech.html">Tech</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <!-- LEFT: About -->
+        <div class="hero-left">
+          <p class="hero-eyebrow">Linguist &amp; Software Engineer</p>
+          <h1 class="hero-name">Rebecca<br />Pizzitola</h1>
+          <p class="hero-tagline">
+            Where rigorous thinking meets working code.
+          </p>
+          <div class="hero-about">
+            <p>
+              I'm a linguist-in-training at Stanford University, and a user
+              experience engineer focused on design technology and human
+              behavior. I'm passionate about building tech experiences that are
+              human-centered, and utilizing my cognitive science training to
+              inform design decisions.
+            </p>
+            <p>
+              At Stanford, I did a B.S. in Human-Computer Interaction (via the
+              Symbolic Systems Department), and I'm finishing my M.A. in
+              linguistics, where I research how people utilize features of
+              language to indirectly communicate about emotions. After
+              graduation, I want to continue my career in UX engineering,
+              research, and design at the intersection of human cognition and
+              technology.
+            </p>
+            <p>
+              Based in the San Francisco Bay Area. Open to any role in which I
+              can influence user experiences [would be happy in engineering,
+              design, research, or a generalist role].
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT: Forks -->
+        <div class="hero-right">
+          <p class="fork-heading">Who are you?</p>
+
+          <!-- Academic Fork -->
+          <div class="fork-card">
+            <p class="fork-card-label academic">Academic</p>
+            <h2 class="fork-card-title">Researcher or<br />collaborator?</h2>
+            <p class="fork-card-desc">
+              Publications, CV, research interests, and academic affiliations.
+            </p>
+            <a href="academic.html" class="btn-fork btn-fork-academic">
+              View Academic Profile →
+            </a>
+          </div>
+
+          <!-- Tech Fork -->
+          <div class="fork-card">
+            <p class="fork-card-label tech">Industry</p>
+            <h2 class="fork-card-title">Recruiter or<br />engineer?</h2>
+            <p class="fork-card-desc">
+              Work history, projects, and technical skills.
+            </p>
+            <a href="tech.html" class="btn-fork btn-fork-tech">
+              View Tech Portfolio →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lime strip with quick links / social -->
+      <div class="strip">
+        <a href="mailto:rjpizzitola@gmail.com" class="strip-item"
+          >rjpizzitola@gmail.com</a
+        >
+        <div class="strip-dot"></div>
+        <a
+          href="https://github.com/rjpizzitola"
+          class="strip-item"
+          target="_blank"
+          >github.com/rjpizzitola</a
+        >
+        <div class="strip-dot"></div>
+        <a
+          href="https://scholar.google.com/citations?user=XNNVK7IAAAAJ&hl=en&oi=ao"
+          class="strip-item"
+          target="_blank"
+          >Google Scholar</a
+        >
+        <div class="strip-dot"></div>
+        <a
+          href="https://linkedin.com/in/rebecca-j-pizzitola"
+          class="strip-item"
+          target="_blank"
+          >LinkedIn</a
+        >
+      </div>
+    </main>
+
+    <footer>
+      &copy; 2026 Rebecca Pizzitola — Built with plain HTML &amp; CSS, hosted on
+      GitHub Pages.
+    </footer>
+  </body>
+</html>
