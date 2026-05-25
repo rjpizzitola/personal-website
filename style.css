@@ -124,6 +124,35 @@ nav .nav-links a.active {
   box-shadow: 0 4px 16px rgba(184, 224, 74, 0.4);
 }
 
+/* ---- DOWNLOAD BUTTONS ---- */
+.download-cv {
+  display: inline-block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--maroon);
+  text-decoration: none;
+  border: 1px solid var(--maroon);
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+}
+
+.download-cv:hover {
+  background: var(--maroon);
+  color: var(--pink-light);
+}
+
+.download-cv.tech {
+  color: var(--lime-dark);
+  border-color: var(--lime-dark);
+}
+
+.download-cv.tech:hover {
+  background: var(--lime);
+  color: var(--maroon-dark);
+  border-color: var(--lime);
+}
+
 /* ---- FOOTER ---- */
 footer {
   text-align: center;
@@ -133,4 +162,199 @@ footer {
   color: var(--text-muted);
   border-top: 1px solid rgba(107, 26, 42, 0.08);
   letter-spacing: 0.03em;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET (≤ 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  nav {
+    padding: 1rem 2rem;
+  }
+
+  .hero-left {
+    padding: 4rem 2.5rem 4rem 3rem;
+  }
+
+  .hero-right {
+    padding: 4rem 3rem 4rem 2.5rem;
+  }
+
+  .fork-card {
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (≤ 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  /* NAV */
+  nav {
+    padding: 1rem 1.25rem;
+  }
+
+  nav .wordmark {
+    font-size: 1rem;
+  }
+
+  nav .nav-links {
+    gap: 1rem;
+  }
+
+  nav .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* HERO: stack vertically */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: unset;
+    padding-top: 4rem;
+  }
+
+  .hero-left {
+    padding: 3rem 1.5rem;
+    min-height: unset;
+  }
+
+  .hero-left::after {
+    width: 120px;
+    height: 120px;
+    bottom: -30px;
+    right: -30px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .hero-about {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .hero-right {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hero-right::before {
+    width: 180px;
+    height: 180px;
+    top: -50px;
+    left: -50px;
+  }
+
+  .fork-card {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  /* LIME STRIP: scrollable, hidden scrollbar */
+  .strip {
+    padding: 0.75rem 1.5rem;
+    gap: 1.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* INNER PAGE WRAPPERS */
+  .page-wrapper {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 4.5rem;
+  }
+
+  /* Page headers: stack download button below title */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1.25rem;
+    padding: 2.5rem 0 2rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  /* CV two-column entries → single column */
+  .cv-entry {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .cv-year {
+    font-size: 0.72rem;
+    opacity: 0.7;
+  }
+
+  /* Work history entries → single column */
+  .work-entry {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .work-years {
+    font-size: 0.72rem;
+    opacity: 0.7;
+  }
+
+  /* Projects: single column */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-chip {
+    font-size: 0.68rem;
+  }
+
+  footer {
+    padding: 1.75rem 1.25rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — SMALL MOBILE (≤ 400px)
+   ============================================ */
+@media (max-width: 400px) {
+  nav .nav-links {
+    gap: 0.65rem;
+  }
+
+  nav .nav-links a {
+    font-size: 0.65rem;
+  }
+
+  .hero-left {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .hero-right {
+    padding: 2rem 1.25rem;
+  }
+
+  .fork-card {
+    padding: 1.25rem;
+  }
+
+  /* Fork buttons go full-width on tiny screens */
+  .btn-fork {
+    font-size: 0.72rem;
+    padding: 0.75rem 1.25rem;
+    width: 100%;
+    justify-content: center;
+  }
 }

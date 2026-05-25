@@ -18,6 +18,13 @@
         padding: 4rem 0 2.5rem;
         border-bottom: 2px solid var(--lime);
         margin-bottom: 3.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .page-header-left {
+        flex: 1;
       }
 
       .page-badge {
@@ -172,7 +179,7 @@
 
       .project-card-image {
         width: 100%;
-        aspect-ratio: auto;
+        aspect-ratio: 16 / 9;
         object-fit: cover;
         display: block;
       }
@@ -255,15 +262,17 @@
 
     <main class="page-wrapper">
       <header class="page-header">
-        <p class="page-badge">Engineering &amp; Product</p>
-        <h1 class="page-title">Tech Portfolio</h1>
-        <p class="page-subtitle">
-          UX engineer with a background in cognitive science and research.
-          Currently open to full-time user experience engineering, design, and
-          research roles.
-        </p>
-        <a href="resume.pdf" class="download-cv" download
-          >↓ Download my resume</a
+        <div class="page-header-left">
+          <p class="page-badge">Engineering &amp; Product</p>
+          <h1 class="page-title">Tech Portfolio</h1>
+          <p class="page-subtitle">
+            UX engineer with a background in cognitive science and research.
+            Currently open to full-time user experience engineering, design, and
+            research roles.
+          </p>
+        </div>
+        <a href="resume.pdf" class="download-cv tech" download
+          >↓ Download Resume</a
         >
       </header>
 
